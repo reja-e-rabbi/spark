@@ -1,5 +1,9 @@
-export {stdio};
+'use strict';
+export { stdio };
 class stdio{
+    test() {
+        console.log('stdio is active');
+    }
   ajax(obj) {
       var output;
       var xmlhttp = new XMLHttpRequest();
@@ -26,13 +30,17 @@ class stdio{
   static cookies (n,v){
     document.cookie = n + "=" + v;
   }
-  static setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  setCookies(cname, cvalue, exdays) {
+      console.log("set cookies is define");
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; SameSite = Lax;"; 
+      return 0;
   }
-  static getCookie(cname) {
+  getCookies(cname) {
+    var out = 0;
+    console.log("cookie return");
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
@@ -42,9 +50,9 @@ class stdio{
         c = c.substring(1);
       }
       if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
+        out = c.substring(name.length, c.length);
       }
     }
-    return "";
+    return out;
   }
 }
