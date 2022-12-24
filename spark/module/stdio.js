@@ -1,10 +1,11 @@
 'use strict';
 export { stdio };
 class stdio{
+    url = new URLSearchParams(document.location.search);
     test() {
         console.log('stdio is active');
     }
-  ajax(obj) {
+    ajax(obj) {
       var output;
       var xmlhttp = new XMLHttpRequest();
     var out = xmlhttp.onreadystatechange = function() {
@@ -27,10 +28,10 @@ class stdio{
     }
     return out;
   }
-  static cookies (n,v){
+    cookies (n,v){
     document.cookie = n + "=" + v;
   }
-  setCookies(cname, cvalue, exdays) {
+    setCookies(cname, cvalue, exdays) {
       console.log("set cookies is define");
       var d = new Date();
       d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -38,7 +39,7 @@ class stdio{
       document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; SameSite = Lax;"; 
       return 0;
   }
-  getCookies(cname) {
+    getCookies(cname) {
     var out = 0;
     console.log("cookie return");
     var name = cname + "=";
@@ -54,5 +55,20 @@ class stdio{
       }
     }
     return out;
-  }
+    }
+    urlDefine() {
+        var wl = window.location;
+        var url = window.location.href;
+        var obj = {
+            "url": url,
+            "protocol": wl.protocol,
+            "host": wl.host,
+            "hostName": wl.hostname,
+            "port": wl.port,
+            "path": wl.pathname,
+            "origin": wl.origin,
+            "hashtag": wl.hash
+        }
+        return obj;
+    }
 }
