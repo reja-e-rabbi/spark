@@ -199,7 +199,7 @@ class Valid {
                 }
             }
             if(select.length > 0){
-                if(select.length != this.form.select.class){
+                if(select.length != this.form.select.length){
                     alert("totla select == total select boject class not matching")
                 }else{
                     for(var i=0;i<select.length;i++){
