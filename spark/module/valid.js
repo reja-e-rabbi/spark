@@ -53,162 +53,175 @@ class Valid {
         return ret;
     }
     check(){
-        var formAll,form,method,action,obj=[],checkValue=[],arminlength=[],armaxlength=[],input,parts=[], output, include;
+        var formAll,form,method,action,obj=[],checkValue=[],arminlength=[],armaxlength=[],input, select,parts=[], output, include;
         form = this.hasForm();
         formAll = document.querySelectorAll('form')[form.form_no];
         method = formAll.getAttribute("method");
         action= formAll.getAttribute("action");
         input = formAll.querySelectorAll('input');
+        select = formAll.querySelectorAll('select');
         if(form.valid == true){
-            for(var i=0;i<select.length;i++){
-                var select_value = select[i].value;
-                var select_required = select[i].getAttribute('required');
-                var select_name = select[i].getAttribute('name');
-                var objln_select = this.form.select[i];
-                console.log(select_value);
-                (select_required == null)||(select_required == undefined)? select_required == null :select_required.toLowerCase();
-                (objln_select == null)||(objln_select == undefined)?select_required == null:select_required.toLocaleLowerCase();
-                var objpart_select ={
-                    "required":select_name,
-                    "type":"select",
-                    "class":objln_select.class,
-                    "max_length":select_name.length,
-                    "min_length":select_name.length,
-                    "text_length":select_name.length,
-                    "text_value":select_name
-                }
-                parts.push(objpart_select.required);
-                var require_s = this.required(objpart.required);
-                checkValue.push(require_s);
-            }
-            for(var i=0;i<input.length;i++){
-                var text_value = input[i].value;
-                var type = input[i].getAttribute('type');
-                var name = input[i].getAttribute('name');
-                var minlength=input[i].getAttribute('minlength');
-                var maxlength=input[i].getAttribute('maxlength');
-                var required=input[i].getAttribute('required');
-                var objln=this.form.input[i];
-                (required != null)?required.toLowerCase():console.log("required");
-                (objln.class == undefined)||(objln.class==null)?objln.class=null:console.log("class active");
-                var objpart={
-                    "required":{
-                        "name":name,
-                        "type":type,
-                        "requir":required,
-                        "class":objln.class,
-                        "maxlength":maxlength,
-                        "minlength":minlength,
-                        "text_length":text_value.length,
-                        "text_value":text_value,
+            
+            if(input.length > 0){
+                if(input.length != this.form.input.length){
+                    alert("total input == total input object class not metching");
+                }else{
+                    for(var i=0;i<input.length;i++){
+                        var text_value = input[i].value;
+                        var type = input[i].getAttribute('type');
+                        var name = input[i].getAttribute('name');
+                        var minlength=input[i].getAttribute('minlength');
+                        var maxlength=input[i].getAttribute('maxlength');
+                        var required=input[i].getAttribute('required');
+                        var objln=this.form.input[i];
+                        (required != null)?required.toLowerCase():console.log("required");
+                        (objln.class == undefined)||(objln.class==null)?alert(type + name + "error class not define"):console.log("class active");
+                        var objpart={
+                            "required":{
+                                "name":name,
+                                "type":type,
+                                "requir":required,
+                                "class":objln.class,
+                                "maxlength":maxlength,
+                                "minlength":minlength,
+                                "text_length":text_value.length,
+                                "text_value":text_value,
+                            }
+                        }
+                        parts.push(objpart.required);
+                        switch(type){
+                            case "text":
+                                var require_d = this.required(objpart.required);
+                                checkValue.push(require_d);
+                                break;
+                            case "email":
+                                var require_d = this.required(objpart.required);
+                                checkValue.push(require_d);
+                                break;
+                            case "password":
+                                var require_d = this.required(objpart.required);
+                                checkValue.push(require_d);
+                                break;
+                            case "date":
+                                var require_d = this.required(objpart.required);
+                                checkValue.push(require_d);
+                                break;
+                            case "select":
+                                var require_d = this.required(objpart.required);
+                                checkValue.push(require_d);
+                                break;
+                            case "checkbox":
+                                var require_d = this.required(objpart.required);
+                                checkValue.push(require_d);
+                                break;
+                            case "search":
+                                var require_d = this.required(objpart.required);
+                                checkValue.push(require_d);
+                                break;
+                            case "button":
+                                var require_d = this.required(objpart.required);
+                                checkValue.push(require_d);
+                                break;
+                            case "color":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "date":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "datetime-local":
+                                var require_d =true;
+                                checkValue.push(require_d);
+                                break;
+                            case "file":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "hidden":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "image":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "month":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "number":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "radio":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "range":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "reset":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "reset":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "tel":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "time":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "url":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "week":
+                                var require_d = true;
+                                checkValue.push(require_d);
+                                break;
+                            case "submit":
+                                var require_d = this.required(objpart.required);
+                                checkValue.push(require_d);
+                                console.log("that is submit");
+                                break;
+                            default:
+                                console.log("i have see a error");
+                                break;
+                        }
                     }
                 }
-                parts.push(objpart.required);
-                switch(type){
-                    case "text":
-                        var require_d = this.required(objpart.required);
-                        checkValue.push(require_d);
-                        break;
-                    case "email":
-                        var require_d = this.required(objpart.required);
-                        checkValue.push(require_d);
-                        break;
-                    case "password":
-                        var require_d = this.required(objpart.required);
-                        checkValue.push(require_d);
-                        break;
-                    case "date":
-                        var require_d = this.required(objpart.required);
-                        checkValue.push(require_d);
-                        break;
-                    case "select":
-                        var require_d = this.required(objpart.required);
-                        checkValue.push(require_d);
-                        break;
-                    case "checkbox":
-                        var require_d = this.required(objpart.required);
-                        checkValue.push(require_d);
-                        break;
-                    case "search":
-                        var require_d = this.required(objpart.required);
-                        checkValue.push(require_d);
-                        break;
-                    case "button":
-                        var require_d = this.required(objpart.required);
-                        checkValue.push(require_d);
-                        break;
-                    case "color":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "date":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "datetime-local":
-                        var require_d =true;
-                        checkValue.push(require_d);
-                        break;
-                    case "file":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "hidden":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "image":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "month":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "number":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "radio":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "range":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "reset":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "reset":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "tel":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "time":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "url":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "week":
-                        var require_d = true;
-                        checkValue.push(require_d);
-                        break;
-                    case "submit":
-                        var require_d = this.required(objpart.required);
-                        checkValue.push(require_d);
-                        console.log("that is submit");
-                        break;
-                    default:
-                        console.log("i have see a error");
-                        break;
+            }
+            if(select.length > 0){
+                if(select.length != this.form.select.class){
+                    alert("totla select == total select boject class not matching")
+                }else{
+                    for(var i=0;i<select.length;i++){
+                        var select_value = select[i].value;
+                        var select_required = select[i].getAttribute('required');
+                        var select_name = select[i].getAttribute('name');
+                        var objln_select = this.form.select[i];
+                        (select_required == null)||(select_required == undefined)? select_required == null :select_required.toLowerCase();
+                        (objln_select.class == null)||(objln_select.class == undefined)?alert("select object class not define"):console.log("select success");
+                        var objpart_select ={
+                            "required":select_name,
+                            "type":"select",
+                            "class":objln_select.class,
+                            "max_length":select_name.length,
+                            "min_length":select_name.length,
+                            "text_length":select_name.length,
+                            "text_value":select_name
+                        }
+                        parts.push(objpart_select.required);
+                        var require_s = this.required(objpart.required);
+                        checkValue.push(require_s);
+                    }
                 }
             }
             if(checkValue.includes(false) !== true){
@@ -225,7 +238,6 @@ class Valid {
                     case "ajax":
                         console.log("ajax request success");
                         form.input =parts;
-                        console.log(form);
                         return form;
                         break;
                     default:
@@ -237,7 +249,7 @@ class Valid {
                 document.querySelector("."+this.form.class).innerHTML= this.letter().perfect;
             }
         }else{
-            console.log('this form is not valied');
+            alert('this form is not valied');
         }
     }
     required(objpart){
@@ -261,12 +273,12 @@ class Valid {
                 }
                 break;
             case null:
+                this.message(objpart);
                 return true;
-                this.message(objpart," ");
                 break;
             default:
                 alert("Attributes \' required=\"required\" \' select perfectely or not define");
-                this.message(objpart," ");
+                this.message(objpart);
                 return false;
                 break;
         }
@@ -288,7 +300,7 @@ class Valid {
           urlRegex = /^((http|https):\/\/(\w+:{0,1}\w*@)?(\S+)|)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/,
           dateRegex = /\d{4}-\d{1,2}-\d{1,2}/;
     }
-    message(parts,letter =""){
+    message(parts,letter = null){
         document.querySelector('.'+parts.class).innerHTML = letter;
     }
     letter(){
