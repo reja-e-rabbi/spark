@@ -11,4 +11,4 @@ a javascript Library
 ### [converter HTML to PDF](https://youtu.be/rkpVw7mrviU)
 ### [display PDF in HTML without download](https://youtu.be/AHen2qPNnjA)
 ### [Website social media share API](https://youtu.be/2ulFdy2TQHU)
-### [client site image resizes] (https://youtu.be/GIXCL51j5es)
+### [client site image resizes](https://youtu.be/GIXCL51j5es)
