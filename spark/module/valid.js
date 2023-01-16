@@ -336,7 +336,86 @@ class Valid {
       };
       return messages;
     }
-    static Reset(qs) {
+    Reset(qs) {
         document.querySelector(qs).reset();
+    }
+    hasFile(){
+        var form, formAll, input, types, fileTerget ={}, typesTerget =[], inputCheck, objInputFile =[], detect=[];
+        var obj = this.form;
+        form = this.hasForm();
+        if (form.valid == true) {
+            formAll = document.querySelectorAll('form')[form.form_no];
+            input = formAll.querySelectorAll('input');
+            if (obj.input.length == input.length) {
+                for (let i = 0; i < input.length; i++) {
+                    types = input[i].getAttribute('type');
+                    (types == "file")?typesTerget.push(1):typesTerget.push(0);
+                    inputCheck = obj.input[i]["file"];
+                    (inputCheck == undefined)?objInputFile.push(0):objInputFile.push(1);
+                    if ((objInputFile[i]== 1) && (typesTerget[i]==1)) {
+                        detect.push(i);
+                        fileTerget.inputTypeFile = detect;
+                    }
+                }
+                if (detect.length > 0) {
+                    form.settings = fileTerget;
+                    form.message = 'success';
+                    //form.object = this.form;
+                    return form;
+                }else{
+                    form.valid = false;
+                    form.message = "input File and Object is not detected";
+                    return form;
+                }   
+            }else{
+                form.message = "form input length != form input object length";
+                form.valid = false;
+                return form;
+            }
+        }else{
+            form.message = "form not detected";
+            form.valid = false;
+            return form;
+        }
+    }
+    hascheck(){
+        var form, formAll, settings, InputType, InputTerget,htmlTergetInput, hasOn;
+        form = this.form;
+        hasOn = this.hasFile();
+        if (hasOn.valid == true) {
+            formAll = document.querySelectorAll('form')[hasOn.form_no];
+            settings = hasOn.settings;
+            InputType = settings.inputTypeFile;
+            if (InputType.length > 0) {
+                for (let i = 0; i < InputType.length; i++) {
+                    var ckInputImg = InputType[i];
+                    InputTerget = form.input[ckInputImg].file;
+                    htmlTergetInput = formAll[ckInputImg];
+                    if (InputTerget.length > 0) {
+                        for (let j = 0; j < InputTerget.length; j++) {
+                            switch (InputTerget[j].type) {
+                               case "image":
+                                    var imgResize = [];
+                                    imgResize.push(ckInputImg);
+                                    hasOn.settings.imgResize = imgResize;
+                                    return hasOn;
+                                    break;
+                                default:
+                                    hasOn.valid = false;
+                                    hasOn.message = "object ->input-> file length 0";
+                                    return hasOn;
+                                    break;
+                            }
+                        }
+                    }else{
+                        hasOn.valid = false;
+                        hasOn.message = "object ->input-> file length 0";
+                        return hasOn;
+                    }
+                }
+            }
+        }else{
+            window.alert(hasOn.message);
+        }
     }
 }
