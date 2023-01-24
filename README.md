@@ -1,4 +1,4 @@
-# spark -- v.01.08
+# spark -- v.01.09
 a javascript Library
 **Table of Contents**
 
@@ -12,3 +12,4 @@ a javascript Library
 ### [display PDF in HTML without download](https://youtu.be/AHen2qPNnjA)
 ### [Website social media share API](https://youtu.be/2ulFdy2TQHU)
 ### [client site image resizes](https://youtu.be/GIXCL51j5es)
+### [convert text to barcode](https://youtu.be/gYNRZnbJbbY)
