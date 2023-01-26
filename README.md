@@ -1,4 +1,4 @@
-# spark -- v.01.09
+# spark -- v.02.00
 a javascript Library
 **Table of Contents**
 
@@ -13,3 +13,4 @@ a javascript Library
 ### [Website social media share API](https://youtu.be/2ulFdy2TQHU)
 ### [client site image resizes](https://youtu.be/GIXCL51j5es)
 ### [convert text to barcode](https://youtu.be/gYNRZnbJbbY)
+### [convert text to QR code](https://youtu.be/JhxutG0-hvI)
