@@ -9,7 +9,9 @@ class library {
                 "css": "https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.min.css",
                 "js": "https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.iife.js"
             },
-            "compressor": "https://cdnjs.cloudflare.com/ajax/libs/compressorjs/1.1.1/compressor.min.js"
+            "compressor": "https://cdnjs.cloudflare.com/ajax/libs/compressorjs/1.1.1/compressor.min.js",
+            "jsBarcode":"https://unpkg.com/jsbarcode@latest/dist/JsBarcode.all.min.js",
+            "qrCode": "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
         }
         return online;
     }
