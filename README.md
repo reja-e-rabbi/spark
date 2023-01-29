@@ -12,5 +12,5 @@ a javascript Library
 ### [display PDF in HTML without download](https://youtu.be/AHen2qPNnjA)
 ### [Website social media share API](https://youtu.be/2ulFdy2TQHU)
 ### [client site image resizes](https://youtu.be/GIXCL51j5es)
-### [convert text to barcode](https://youtu.be/gYNRZnbJbbY)
 ### [convert text to QR code](https://youtu.be/JhxutG0-hvI)
+### [convert text to barcode](https://youtu.be/FRxQ6oirnRA)
