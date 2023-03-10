@@ -27,10 +27,33 @@ class stdio{
       xmlhttp.send("id="+obj);
     }
     return out;
-  }
-    cookies (n,v){
-    document.cookie = n + "=" + v;
-  }
+    }
+    async fetchData(url,data) {
+      var reqType;
+        let options = {
+          method: 'GET',
+          headers:{
+            'Content-Type': 'Applications/json'
+          }
+        }
+        if ((data == undefined) || (data == null)) {
+          reqType = options;
+        }else{
+          if ((data.headers['content-type']== undefined) || (data.headers['content-type']== null)) {
+            data.headers['content-type']= 'Applications/json';
+          }
+          if ((data.method == undefined) || (data.method == null)) {
+            data.method = 'GET';
+          }
+          reqType = data;
+        }
+        return fetch(url,reqType)
+        .then(response => response.json())
+        .then(data => {
+          return data; // return the data
+        })
+        .catch(error => console.log(error));
+    }
     setCookies(cname, cvalue, exdays) {
       console.log("set cookies is define");
       var d = new Date();
@@ -38,7 +61,7 @@ class stdio{
       var expires = "expires=" + d.toUTCString();
       document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; SameSite = Lax;"; 
       return 0;
-  }
+    }
     getCookies(cname) {
     var out = 0;
     console.log("cookie return");
@@ -71,4 +94,49 @@ class stdio{
         }
         return obj;
     }
+    hasAtt(att,data_id){
+      var tagAll, Data={}, dataAtt=[];
+      tagAll = document.querySelectorAll(att);
+      Data.result = {};
+      Data.valid = false;
+      switch (tagAll.length) {
+        case 0:
+          Data.valid = false;
+          Data.message = 'tag not found';
+          break;
+        default:
+          Data.valid = true;
+          for (let i = 0; i < tagAll.length; i++) {
+            if (tagAll[i].getAttribute(data_id)) {
+              dataAtt.push(tagAll[i].getAttribute(data_id));
+            }
+          }
+          Data.result.total = dataAtt.length;
+          Data.result[data_id] = dataAtt;
+          break;
+      }
+      return Data;
+    }
+    addScript(url) {
+      var script = document.createElement('script');
+      script.type = 'application/javascript';
+      script.src = url;
+      document.head.appendChild(script);
+    }
+    addCss(url) {
+      var css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = url;
+      document.head.appendChild(css);
+    }
 }
+
+/*
+const url = '/recive.json';
+  const dataPromise = fetchData(url);
+  dataPromise.then(data => {
+    // use the fetched data here
+    console.log(data);
+  });
+
+*/
