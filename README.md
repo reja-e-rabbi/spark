@@ -14,3 +14,4 @@ a javascript Library
 ### [client site image resizes](https://youtu.be/GIXCL51j5es)
 ### [convert text to QR code](https://youtu.be/JhxutG0-hvI)
 ### [convert text to barcode](https://youtu.be/FRxQ6oirnRA)
+### [REST Api](https://youtu.be/NxSuOI9ZJRI)
