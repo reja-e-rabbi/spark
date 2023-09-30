@@ -1,6 +1,9 @@
 # spark -- v.02.01
 a javascript Library
-**Table of Contents**
+
+#Contact with me
+## [Discord](https://discord.gg/g4hvvkzWVy)
+
 
 # tutorial
 ## Youtube
