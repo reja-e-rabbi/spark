@@ -1,9 +1,8 @@
 # spark -- v.02.01
 a javascript Library
 
-#Contact with me
-## [Discord](https://discord.gg/g4hvvkzWVy)
-## [Discord](https://youtu.be/3HqpWeYReSc)
+# Contact with me
+### [Discord](https://discord.gg/g4hvvkzWVy)
 
 
 # tutorial
