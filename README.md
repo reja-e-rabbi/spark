@@ -1,8 +1,14 @@
 # spark -- v.02.01
-a javascript Library
+A powerful JavaScript library for solving common web development tasks, making your life as a developer easier. 
 
-# Contact with me
+## Contact with me
 ### [Discord](https://discord.gg/g4hvvkzWVy)
+### [Telegram](https://t.me/+fsZIF92TCag2ZGVl)
+### [YouTube](https://www.youtube.com/channel/UCd--yn_XU9jNqZPxGO1pVpA)
+### [LinkedIn](https://www.linkedin.com/in/reja-e-rabbi-sarkar-62103a13a/)
+
+## For private contact.
+### rabbi1365@gmail.com
 
 
 # tutorial
@@ -18,3 +24,6 @@ a javascript Library
 ### [convert text to QR code](https://youtu.be/JhxutG0-hvI)
 ### [convert text to barcode](https://youtu.be/FRxQ6oirnRA)
 ### [REST Api](https://youtu.be/NxSuOI9ZJRI)
+
+
+### This library is open-source and available under the [MIT license](https://en.wikipedia.org/wiki/MIT_License)
